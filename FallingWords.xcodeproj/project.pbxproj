@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18011BE624C8C2440096A9FF /* LanguageGameRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011BE524C8C2440096A9FF /* LanguageGameRepositoryMock.swift */; };
+		18011BE924C8C2850096A9FF /* LanguageWord+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011BE824C8C2850096A9FF /* LanguageWord+Stubs.swift */; };
+		18011BEB24C8DB580096A9FF /* LanguageGameUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18011BEA24C8DB580096A9FF /* LanguageGameUseCaseMock.swift */; };
 		1814D40B248C5058004420DE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814D40A248C5058004420DE /* Fonts.swift */; };
 		184CF67B24C864F9003DC685 /* LanguageGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184CF67A24C864EE003DC685 /* LanguageGameViewController.xib */; };
 		184FE15024BB00230094F2A0 /* ChooseLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FE14E24BB00230094F2A0 /* ChooseLanguageViewController.swift */; };
@@ -121,6 +124,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		18011BE524C8C2440096A9FF /* LanguageGameRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageGameRepositoryMock.swift; sourceTree = "<group>"; };
+		18011BE824C8C2850096A9FF /* LanguageWord+Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LanguageWord+Stubs.swift"; sourceTree = "<group>"; };
+		18011BEA24C8DB580096A9FF /* LanguageGameUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageGameUseCaseMock.swift; sourceTree = "<group>"; };
 		1814D40A248C5058004420DE /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		184CF67A24C864EE003DC685 /* LanguageGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageGameViewController.xib; sourceTree = "<group>"; };
 		184FE14E24BB00230094F2A0 /* ChooseLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +237,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18011BE724C8C2730096A9FF /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				18011BE824C8C2850096A9FF /* LanguageWord+Stubs.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 		184FE14D24BAFFFF0094F2A0 /* ChooseLanguage */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +284,7 @@
 		187222A424C2729D00B6635B /* FallingWordsTests */ = {
 			isa = PBXGroup;
 			children = (
+				18011BE724C8C2730096A9FF /* Stubs */,
 				187222C524C2886100B6635B /* Repositories */,
 				187222BF24C2840200B6635B /* ViewModels */,
 				187222AD24C272C300B6635B /* UseCases */,
@@ -291,6 +306,7 @@
 		187222B024C273BD00B6635B /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				18011BE524C8C2440096A9FF /* LanguageGameRepositoryMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -307,6 +323,7 @@
 		187222C224C2849E00B6635B /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				18011BEA24C8DB580096A9FF /* LanguageGameUseCaseMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -969,6 +986,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18011BE624C8C2440096A9FF /* LanguageGameRepositoryMock.swift in Sources */,
+				18011BE924C8C2850096A9FF /* LanguageWord+Stubs.swift in Sources */,
+				18011BEB24C8DB580096A9FF /* LanguageGameUseCaseMock.swift in Sources */,
 				187222C724C2887B00B6635B /* ChooseLanguageRepositoryTest.swift in Sources */,
 				187222C124C2845100B6635B /* LanguageGameViewModelTest.swift in Sources */,
 				187222AF24C2730F00B6635B /* LanguageGameUseCaseTest.swift in Sources */,

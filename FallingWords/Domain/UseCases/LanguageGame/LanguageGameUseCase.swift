@@ -22,11 +22,11 @@ final class DefaultLanguageGameUseCase: LanguageGameUseCase {
     }
 
     func execute(completion: @escaping (Result<[LanguageWord], Error>) -> Void) {
-        
+
         repository.fetchWordListList { (result) in
             let words = result.value ?? []
-            var translations = words.map({$0.translation}).shuffled()
-            
+            var translations = words.map({ $0.translation }).shuffled()
+
             func randomWord() -> String {
                 return translations.removeFirst()
             }

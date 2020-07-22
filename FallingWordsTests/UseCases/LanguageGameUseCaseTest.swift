@@ -12,17 +12,42 @@ import XCTest
 class LanguageGameUseCaseTest: XCTestCase {
 
     var sut: DefaultLanguageGameUseCase!
-
+    var repo = LanguageGameRepositoryMock()
     override func setUpWithError() throws {
-        //        sut =
+        sut = DefaultLanguageGameUseCase(repository: repo)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
     }
 
     func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+        let exp = expectation(description: "data should be shuffled")
+        var words: [LanguageWord]!
+        var repowords: [LanguageWord]!
+        sut.execute { (result) in
+            words = result.value ?? []
+
+            self.repo.fetchWordListList { (reporesult) in
+                repowords = reporesult.value ?? []
+                exp.fulfill()
+            }
+
+        }
+
+        waitForExpectations(timeout: 3)
+
+        let firstWord = words.first
+        let lastWord = words.last
+
+        let firstRepotrans = repowords.first(where: { $0.word == firstWord?.word })?.translation
+        let lastRepoTrans = repowords.first(where: { $0.word == lastWord?.word })?.translation
+
+        print(firstWord?.translation == firstRepotrans)
+        print(lastWord?.translation == lastRepoTrans)
+        let notEqual = (firstWord?.translation == firstRepotrans) && (lastWord?.translation == lastRepoTrans)
+
+        XCTAssertFalse(notEqual, "data has not been equal to repo data")
     }
 }

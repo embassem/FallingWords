@@ -19,7 +19,7 @@ class LanguageGameViewController: BaseViewController {
     @IBOutlet private weak var noAnswerLabel: UILabel!
     @IBOutlet private weak var correctButton: UIButton!
     @IBOutlet private weak var wrongButton: UIButton!
-    
+
     @IBOutlet private weak var currentWordLabel: UILabel!
     lazy var backButton: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -42,25 +42,24 @@ class LanguageGameViewController: BaseViewController {
 
         return btn
     }()
-    
-     var fallingWordLabel: UILabel?
-       
+
+    var fallingWordLabel: UILabel?
 
     // MARK: - Methods
     public init(_ viewModel: LanguageGameViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         viewModel.viewDidLoad()
-        
+
     }
 
     func configureUI() {
@@ -74,7 +73,7 @@ class LanguageGameViewController: BaseViewController {
             .observe(on: self, observerBlock: { [weak self] _ in self?.gameStatusChanged() })
         viewModel.currentItem
             .observe(on: self, observerBlock: { [weak self] in self?.currectItemDidCahnge(item: $0) })
-        
+
         viewModel.remaining.observe(on: self, observerBlock: { [weak self] in  self?.remainingLabel.text = "\($0)" })
         viewModel.correct.observe(on: self, observerBlock: { [weak self] in  self?.correctLabel.text = "\($0)" })
         viewModel.wrong.observe(on: self, observerBlock: { [weak self] in  self?.wrongLabel.text = "\($0)" })
@@ -86,17 +85,17 @@ class LanguageGameViewController: BaseViewController {
         //TODO: Display an Alert to confirm back while game is on
         navigationController?.popViewController(animated: true)
     }
-    
+
     func gameStatusChanged() {
         let status = viewModel.state.value
-        
+
         switch status {
-            case .ended:
+        case .ended:
             gameEnded()
-            default:break
+        default:break
         }
     }
-    
+
     func gameEnded() {
         let message =
         """
@@ -113,7 +112,7 @@ class LanguageGameViewController: BaseViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     func currectItemDidCahnge(item: LanguageWord? ) {
         guard let word = item else {
             currentWordLabel.text = nil
@@ -123,31 +122,25 @@ class LanguageGameViewController: BaseViewController {
         resetLabel(text: word.translation)
         startGame()
     }
-    
+
     func resetLabel(text: String) {
         fallingWordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 35))
         fallingWordLabel?.textAlignment = .center
         fallingWordLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         fallingWordLabel?.textColor = .grayscale800
         if let lbl = fallingWordLabel {
-             fallingWordContainer.addSubview(lbl)
+            fallingWordContainer.addSubview(lbl)
         }
-       
+
         fallingWordLabel?.center.x = fallingWordContainer.bounds.midX
         fallingWordLabel?.center.y = fallingWordContainer.bounds.minY
         fallingWordLabel?.text = text
     }
-    
+
     func startGame() {
-//        correctButton.isUserInteractionEnabled = true
-//        wrongButton.isUserInteractionEnabled = true
+
         let duration = Double.random(in: 3...6)
-        let delay = 0.0
-        let animationOptions: UIView.AnimationOptions = [.curveEaseOut,
-                                                         .allowUserInteraction,
-                                                         .beginFromCurrentState,
-                                                         .allowAnimatedContent]
-        
+
         animator = UIViewPropertyAnimator(
             duration: duration,
             curve: .easeIn,
@@ -155,50 +148,50 @@ class LanguageGameViewController: BaseViewController {
                 self.fallingWordLabel?.center.y = (self.fallingWordContainer.bounds.maxY + 50.0)
 
         })
-        
+
         animator?.startAnimation()
         animator?.addCompletion({ _ in
-            
+
             self.finishFalling()
         })
-//        UIView.animate(withDuration: duration,
-//                       delay: delay,
-//                       options: animationOptions,
-//                       animations: {
-//
-//        }, completion: {(finished: Bool) in
-//            self.finishFalling(finished: finished)
-//        })
+        //        UIView.animate(withDuration: duration,
+        //                       delay: delay,
+        //                       options: animationOptions,
+        //                       animations: {
+        //
+        //        }, completion: {(finished: Bool) in
+        //            self.finishFalling(finished: finished)
+        //        })
 
     }
     var animator: UIViewPropertyAnimator?
-    
+
     func finishFalling() {
         fallingWordLabel?.text = nil
         fallingWordLabel = nil
         noAnswerAction()
     }
-    
+
     @IBAction func correctAnswerAction(_ sender: UIButton) {
         animator?.stopAnimation(true)
         clearLabel()
         viewModel.correctAnswerAction()
     }
-    
+
     @IBAction func wrongAnswerAction(_ sender: UIButton) {
         animator?.stopAnimation(true)
         clearLabel()
         viewModel.wrongAnswerAction()
-       
+
     }
-    
+
     func noAnswerAction() {
         clearLabel()
         viewModel.noAnswerAction()
     }
-    
+
     func clearLabel() {
-//        fallingWordLabel.layer.removeAllAnimations()
+        //        fallingWordLabel.layer.removeAllAnimations()
         fallingWordLabel?.removeFromSuperview()
         fallingWordLabel = nil
     }

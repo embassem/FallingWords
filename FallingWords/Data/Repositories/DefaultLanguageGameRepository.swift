@@ -9,12 +9,12 @@
 import Foundation
 
 final class DefaultLanguageGameRepository {
-    
+
     let game: LanguageGame
-    
+
     init(game: LanguageGame) {
         self.game = game
-        
+
     }
 }
 
@@ -23,5 +23,5 @@ extension DefaultLanguageGameRepository: LanguageGameRepository {
         let randomWords = Array(game.words.shuffled().prefix(game.numberOfTries))
         completion(.success(randomWords))
     }
-    
+
 }

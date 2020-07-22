@@ -9,7 +9,7 @@
 import Foundation
 
 protocol LanguageGameViewModelOutput {
-    
+
     var state: Observable <GameState> { get }
     var error: Observable<String> { get }
     var currentItem: Observable<LanguageWord?> { get }
@@ -17,7 +17,7 @@ protocol LanguageGameViewModelOutput {
     var correct: Observable <Int> { get }
     var wrong: Observable <Int> { get }
     var noAnswer: Observable <Int> { get }
-    var total:Int { get }
+    var total: Int { get }
 }
 protocol LanguageGameViewModelInput {
     func viewDidLoad()
@@ -35,45 +35,45 @@ enum GameState {
 }
 
 class DefaultLanguageGameViewModel: LanguageGameViewModel {
-    
+
     var remaining: Observable<Int> = Observable(0)
-    
+
     var correct: Observable<Int> = Observable(0)
-    
+
     var wrong: Observable<Int> = Observable(0)
-    
+
     var noAnswer: Observable<Int> = Observable(0)
-    
+
     func viewDidLoad() {
         startGame()
     }
-    
+
     func noAnswerAction() {
         noAnswer.value += 1
         play()
     }
-    
+
     func correctAnswerAction() {
         validateAnswer(chooseCorrect: true)
         play()
     }
-    
+
     func wrongAnswerAction() {
         validateAnswer(chooseCorrect: false)
         play()
     }
-    
+
     func backAction() {
-        
+
     }
-    
+
     var game: LanguageGame
     var state: Observable<GameState> = Observable(.intial)
     var error: Observable<String> = Observable("")
     var gameUseCase: LanguageGameUseCase
     var currentItem: Observable<LanguageWord?> = Observable(nil)
     var remainingSlots: [LanguageWord] = []
-    
+
     var total: Int {
         return correct.value + wrong.value + noAnswer.value
     }
@@ -81,14 +81,14 @@ class DefaultLanguageGameViewModel: LanguageGameViewModel {
         self.game = game
         self.gameUseCase = gameUseCase
     }
-    
+
     private func startGame() {
         gameUseCase.execute { (result) in
             self.remainingSlots = result.value ?? []
             self.play()
         }
     }
-    
+
     private func play() {
         remaining.value = remainingSlots.count
         if remainingSlots.isEmpty {
@@ -96,23 +96,23 @@ class DefaultLanguageGameViewModel: LanguageGameViewModel {
             gameEnded()
             return
         }
-        
+
         let option = remainingSlots.removeFirst()
-        
+
         currentItem.value = option
     }
-    
+
     private func gameEnded() {
         self.state.value = .ended
 
     }
-    
-    func validateAnswer(chooseCorrect:Bool) {
-        guard let correctWord = game.words.first(where: {$0.word == currentItem.value?.word}),
+
+    func validateAnswer( chooseCorrect: Bool) {
+        guard let correctWord = game.words.first(where: { $0.word == currentItem.value?.word }),
             let translation = currentItem.value?.translation else {
                 return
         }
-        
+
         if correctWord.translation == translation {
             if chooseCorrect == true {
                 correct.value += 1

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LanguageGameRepository {
-     func fetchWordListList( completion: @escaping (Result<[LanguageWord], Error>) -> Void)
+    func fetchWordListList( completion: @escaping (Result<[LanguageWord], Error>) -> Void)
 }
