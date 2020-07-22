@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol ListDataSource {
+    func reload()
+}
+
 class ChooseLanguageViewController: BaseViewController {
+
+    @IBOutlet private weak var collectionView: UICollectionView!
 
     convenience init(viewModel: ChooseLanguageViewModel) {
         self.init(nibName: nil, bundle: nil)
@@ -18,7 +24,10 @@ class ChooseLanguageViewController: BaseViewController {
     var coordinator: AppCoordinatorProtocol!
 
     private var viewModel: ChooseLanguageViewModel!
-    let searchController = UISearchController(searchResultsController: nil)
+
+    lazy var listDataSource: ListDataSource = {
+        return ChooseLanguageDataSource(viewModel: self.viewModel, collectionView: self.collectionView)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +44,30 @@ class ChooseLanguageViewController: BaseViewController {
         bind(to: viewModel)
         viewModel.viewDidLoad()
         definesPresentationContext = true
+        collectionView.register(nibWithCellClass: ChooseLanguageCell.self)
+        collectionView.delegate = self
     }
 
     private func bind(to viewModel: ChooseLanguageViewModel) {
+        viewModel.items.observe(on: self) { [weak self] _ in self?.listDataSource.reload() }
         viewModel.error.observe(on: self) { [weak self] in self?.showError(with: $0) }
+    }
+}
+
+extension ChooseLanguageViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectItem(at: indexPath.item)
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let collectionFlow = collectionView.collectionViewLayout as?
+            UICollectionViewFlowLayout else { return .zero }
+        let space: CGFloat =
+            (collectionFlow.minimumInteritemSpacing) +
+                (collectionFlow.sectionInset.left) +
+                (collectionFlow.sectionInset.right)
+
+        return CGSize(width: ((collectionView.frame.size.width - space) / 2), height: 120)
     }
 }

@@ -32,8 +32,11 @@ class GameNavigator: Navigator {
         return view
     }
 
-    func makeLanguageGameViewController(language: LanguageGame) -> LanguageGameViewController {
-        let viewModel = DefaultLanguageGameViewModel(game: LanguageGame())
+    func makeLanguageGameViewController(language: LanguageChoose) -> LanguageGameViewController {
+        let numOfTries = 15
+        let game = LanguageGame(numberOfTries: numOfTries, words: language.words)
+
+        let viewModel = DefaultLanguageGameViewModel(game: game)
         let view = LanguageGameViewController(viewModel)
         return view
     }

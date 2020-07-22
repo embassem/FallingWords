@@ -7,17 +7,18 @@
 //
 
 import Foundation
-final class JSONChooseLanguageResponseStorage {
+final class JSONChooseLanguageResponseStorage: ChooseLanguageResponseStorage {
 
-}
-
-extension JSONChooseLanguageResponseStorage: ChooseLanguageResponseStorage {
-
-    func getResponse(completion: @escaping (Result<[WordJSON], Error>) -> Void) {
+    func getResponse(completion: @escaping (Result<[LanguageChooseJSON], Error>) -> Void) {
 
         let container = Bundle.main.decode([WordJSON].self, from: "words.json")
 
-        completion(.success(container) )
+        let engToSpaWords = container.compactMap({ $0.toLanguageWordJSON(word: $0.textEng, translation: $0.textSpa ) })
+        let engToSpa = LanguageChooseJSON(fromLang: "English", toLang: "Spanish", words: engToSpaWords)
+        let spaToEngWords = container.compactMap({ $0.toLanguageWordJSON(word: $0.textSpa, translation: $0.textEng ) })
+        let spaToEng = LanguageChooseJSON(fromLang: "Spanish", toLang: "English", words: spaToEngWords)
+
+        completion(.success([engToSpa, spaToEng]) )
         return
     }
 }

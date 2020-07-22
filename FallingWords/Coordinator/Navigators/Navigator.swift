@@ -33,13 +33,13 @@ extension Navigator {
 
         switch type {
         case .push:
-            coordinator.navigationController?.pushViewController(viewController, animated: true)
+            coordinator.navigationController.pushViewController(viewController, animated: true)
         case .present:
-            coordinator.navigationController?.present(viewController, animated: true)
+            coordinator.navigationController.present(viewController, animated: true)
         case .root:
-            coordinator.navigationController?.setViewControllers([viewController], animated: true)
+            coordinator.navigationController.setViewControllers([viewController], animated: true)
         case .pop:
-            coordinator.navigationController?.popViewController(animated: true)
+            coordinator.navigationController.popViewController(animated: true)
         }
     }
 

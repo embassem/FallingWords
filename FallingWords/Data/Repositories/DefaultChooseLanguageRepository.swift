@@ -19,14 +19,30 @@ final class DefaultChooseLanguageRepository {
 
 extension DefaultChooseLanguageRepository: ChooseLanguageRepository {
 
-    func fetchChooseLanguageList(completion: @escaping (Result<[LanguageWord], Error>) -> Void) {
+    func fetchChooseLanguageList(completion: @escaping (Result<[LanguageChoose], Error>) -> Void) {
         local.getResponse { (result) in
             switch result {
-            case .success(let responseDTO): break
-            //completion(.success(responseDTO.map({ $0.toLanguage() })))
+            case .success(let responseDTO):
+                completion(.success(responseDTO.map(LanguageChoose.init)))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
+    }
+}
+
+extension LanguageChoose {
+
+    init(local: LanguageChooseJSON) {
+        self.fromLang = local.fromLang
+        self.toLang = local.toLang
+        self.words = local.words.map(LanguageWord.init)
+    }
+}
+
+extension LanguageWord {
+    init(local: LanguageWordJSON) {
+        self.word = local.word
+        self.translation = local.translation
     }
 }

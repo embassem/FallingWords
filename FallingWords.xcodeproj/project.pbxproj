@@ -14,7 +14,6 @@
 		18500E2E24BCDFAB006C1F35 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18500E2D24BCDFAB006C1F35 /* AppCoordinator.swift */; };
 		18500E3124BCE06D006C1F35 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18500E3024BCE06D006C1F35 /* Navigator.swift */; };
 		18500E3324BCE0D2006C1F35 /* GameNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18500E3224BCE0D2006C1F35 /* GameNavigator.swift */; };
-		18500E3624BCEAD9006C1F35 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 18500E3524BCEAD9006C1F35 /* Cosmos */; };
 		18500E3A24BD0E10006C1F35 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18500E3924BD0E10006C1F35 /* Dictionary.swift */; };
 		187222A624C2729D00B6635B /* DecadeOfMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187222A524C2729D00B6635B /* DecadeOfMoviesTests.swift */; };
 		187222AF24C2730F00B6635B /* LanguageGameUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187222AE24C2730F00B6635B /* LanguageGameUseCaseTest.swift */; };
@@ -30,6 +29,10 @@
 		18777F4F248C32D800A4CA60 /* NoInternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18777F4C248C32D800A4CA60 /* NoInternetView.swift */; };
 		1886083324C7A7D700C69BAF /* ChooseLanguageItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC088924BB604F00A13324 /* ChooseLanguageItemViewModel.swift */; };
 		1886083524C7B0AE00C69BAF /* words.json in Resources */ = {isa = PBXBuildFile; fileRef = 1886083424C7B0AE00C69BAF /* words.json */; };
+		1886083924C7BF4500C69BAF /* ChooseLanguageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886083824C7BF4500C69BAF /* ChooseLanguageDataSource.swift */; };
+		1886083D24C7BFA300C69BAF /* ChooseLanguageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886083B24C7BFA300C69BAF /* ChooseLanguageCell.swift */; };
+		1886083E24C7BFA300C69BAF /* ChooseLanguageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1886083C24C7BFA300C69BAF /* ChooseLanguageCell.xib */; };
+		1886084124C8421500C69BAF /* LanguageChooseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1886083F24C8404000C69BAF /* LanguageChooseJSON.swift */; };
 		1893A46D248B151400EB063A /* KingfisherDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 1893A46C248B151400EB063A /* KingfisherDynamic */; };
 		1893A46E248B151400EB063A /* KingfisherDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 1893A46C248B151400EB063A /* KingfisherDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1896D6BF248ABA4300E549BA /* UIColor+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1896D6BE248ABA4300E549BA /* UIColor+App.swift */; };
@@ -84,7 +87,6 @@
 		18E1515B24C2338B005312DC /* LanguageGameItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1515A24C2338B005312DC /* LanguageGameItemViewModel.swift */; };
 		18E1516124C248CD005312DC /* LanguageGameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1516024C248CD005312DC /* LanguageGameUseCase.swift */; };
 		18E1516324C24919005312DC /* LanguageGameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1516224C24919005312DC /* LanguageGameRepository.swift */; };
-		18E1516524C24996005312DC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1516424C24996005312DC /* Photo.swift */; };
 		18E1516724C24A4D005312DC /* DefaultLanguageGameRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1516624C24A4D005312DC /* DefaultLanguageGameRepository.swift */; };
 		18E1516C24C24D18005312DC /* ExampleService+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1516B24C24D18005312DC /* ExampleService+Network.swift */; };
 		18F255A124C1D6680020A9BD /* LanguageGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F255A024C1D6680020A9BD /* LanguageGameViewController.swift */; };
@@ -138,6 +140,10 @@
 		18777F4B248C32D800A4CA60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoInternetView.xib; sourceTree = "<group>"; };
 		18777F4C248C32D800A4CA60 /* NoInternetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoInternetView.swift; sourceTree = "<group>"; };
 		1886083424C7B0AE00C69BAF /* words.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = words.json; sourceTree = "<group>"; };
+		1886083824C7BF4500C69BAF /* ChooseLanguageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageDataSource.swift; sourceTree = "<group>"; };
+		1886083B24C7BFA300C69BAF /* ChooseLanguageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageCell.swift; sourceTree = "<group>"; };
+		1886083C24C7BFA300C69BAF /* ChooseLanguageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseLanguageCell.xib; sourceTree = "<group>"; };
+		1886083F24C8404000C69BAF /* LanguageChooseJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageChooseJSON.swift; sourceTree = "<group>"; };
 		1896D6BE248ABA4300E549BA /* UIColor+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+App.swift"; sourceTree = "<group>"; };
 		18A9D0D724C1DBEB0078DA89 /* UICollectionViewExtensions+SwifterSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewExtensions+SwifterSwift.swift"; sourceTree = "<group>"; };
 		18B0B1F82489729300DF800B /* FallingWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallingWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +199,6 @@
 		18E1515A24C2338B005312DC /* LanguageGameItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageGameItemViewModel.swift; sourceTree = "<group>"; };
 		18E1516024C248CD005312DC /* LanguageGameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageGameUseCase.swift; sourceTree = "<group>"; };
 		18E1516224C24919005312DC /* LanguageGameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageGameRepository.swift; sourceTree = "<group>"; };
-		18E1516424C24996005312DC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		18E1516624C24A4D005312DC /* DefaultLanguageGameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLanguageGameRepository.swift; sourceTree = "<group>"; };
 		18E1516B24C24D18005312DC /* ExampleService+Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExampleService+Network.swift"; sourceTree = "<group>"; };
 		18F255A024C1D6680020A9BD /* LanguageGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageGameViewController.swift; sourceTree = "<group>"; };
@@ -215,7 +220,6 @@
 			files = (
 				18777F45248C30B500A4CA60 /* Toast in Frameworks */,
 				18777EE2248C0F4D00A4CA60 /* Moya in Frameworks */,
-				18500E3624BCEAD9006C1F35 /* Cosmos in Frameworks */,
 				1893A46D248B151400EB063A /* KingfisherDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +365,15 @@
 				18777F46248C32D800A4CA60 /* No Internet view */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1886083A24C7BF8D00C69BAF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1886083B24C7BFA300C69BAF /* ChooseLanguageCell.swift */,
+				1886083C24C7BFA300C69BAF /* ChooseLanguageCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		18B0B1EF2489729300DF800B = {
@@ -629,8 +642,10 @@
 		18CC088524BB601900A13324 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1886083A24C7BF8D00C69BAF /* Cells */,
 				184FE14E24BB00230094F2A0 /* ChooseLanguageViewController.swift */,
 				184FE14F24BB00230094F2A0 /* ChooseLanguageViewController.xib */,
+				1886083824C7BF4500C69BAF /* ChooseLanguageDataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -648,7 +663,6 @@
 			isa = PBXGroup;
 			children = (
 				18CC087524BB0F7900A13324 /* LanguageGame.swift */,
-				18E1516424C24996005312DC /* Photo.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -691,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				18CC089F24BB709300A13324 /* ChooseLanguageResponseStorage.swift */,
+				1886083F24C8404000C69BAF /* LanguageChooseJSON.swift */,
 				18CC089B24BB6DDB00A13324 /* WordJSON.swift */,
 				18CC089D24BB6F8500A13324 /* JSONChooseLanguageResponseStorage.swift */,
 			);
@@ -816,7 +831,6 @@
 				1893A46C248B151400EB063A /* KingfisherDynamic */,
 				18777EE1248C0F4D00A4CA60 /* Moya */,
 				18777F44248C30B500A4CA60 /* Toast */,
-				18500E3524BCEAD9006C1F35 /* Cosmos */,
 			);
 			productName = Offers;
 			productReference = 18B0B1F82489729300DF800B /* FallingWords.app */;
@@ -887,6 +901,7 @@
 				18B0B22724897CF900DF800B /* Images.xcassets in Resources */,
 				1886083524C7B0AE00C69BAF /* words.json in Resources */,
 				18777F4E248C32D800A4CA60 /* NoInternetView.xib in Resources */,
+				1886083E24C7BFA300C69BAF /* ChooseLanguageCell.xib in Resources */,
 				18CC08AA24BB735A00A13324 /* Debug.xcconfig in Resources */,
 				18B0B2882489BEFA00DF800B /* SF-Pro-Text-Semibold.otf in Resources */,
 				18B0B28C2489BEFA00DF800B /* SF-Pro-Text-Regular.otf in Resources */,
@@ -960,13 +975,13 @@
 			files = (
 				18500E2E24BCDFAB006C1F35 /* AppCoordinator.swift in Sources */,
 				18B0B25124897E6300DF800B /* UIWindow+Transition.swift in Sources */,
-				18E1516524C24996005312DC /* Photo.swift in Sources */,
 				18CC087124BB0D5000A13324 /* Bundle+Decodable.swift in Sources */,
 				18777F3A248C15D500A4CA60 /* StaticHeaderPlugin.swift in Sources */,
 				18E1516C24C24D18005312DC /* ExampleService+Network.swift in Sources */,
 				18B0B23524897DCC00DF800B /* AppManager.swift in Sources */,
 				18E1516124C248CD005312DC /* LanguageGameUseCase.swift in Sources */,
 				18E1515B24C2338B005312DC /* LanguageGameItemViewModel.swift in Sources */,
+				1886083924C7BF4500C69BAF /* ChooseLanguageDataSource.swift in Sources */,
 				18B0B25324897E6300DF800B /* UICollecttionViewCell+Reusable.swift in Sources */,
 				184FE15024BB00230094F2A0 /* ChooseLanguageViewController.swift in Sources */,
 				18CC089C24BB6DDB00A13324 /* WordJSON.swift in Sources */,
@@ -991,6 +1006,7 @@
 				18CC089E24BB6F8500A13324 /* JSONChooseLanguageResponseStorage.swift in Sources */,
 				18B0B25C24897E7F00DF800B /* SplashViewController.swift in Sources */,
 				18F255A124C1D6680020A9BD /* LanguageGameViewController.swift in Sources */,
+				1886084124C8421500C69BAF /* LanguageChooseJSON.swift in Sources */,
 				18CC087924BB12F800A13324 /* UITableViewExtensions+SwifterSwift.swift in Sources */,
 				18A9D0D824C1DBEB0078DA89 /* UICollectionViewExtensions+SwifterSwift.swift in Sources */,
 				18B0B26C248980BA00DF800B /* UIImage+Essentials.swift in Sources */,
@@ -1011,6 +1027,7 @@
 				18B0B22B24897CF900DF800B /* SceneDelegate.swift in Sources */,
 				18CC089424BB6B9F00A13324 /* ChooseLanguageRepository.swift in Sources */,
 				1886083324C7A7D700C69BAF /* ChooseLanguageItemViewModel.swift in Sources */,
+				1886083D24C7BFA300C69BAF /* ChooseLanguageCell.swift in Sources */,
 				18B0B27E2489BCA700DF800B /* ScaledFont.swift in Sources */,
 				1896D6BF248ABA4300E549BA /* UIColor+App.swift in Sources */,
 			);
@@ -1211,7 +1228,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/FallingWords/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1231,7 +1248,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/FallingWords/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1312,11 +1329,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		18500E3524BCEAD9006C1F35 /* Cosmos */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 18500E3424BCEAD9006C1F35 /* XCRemoteSwiftPackageReference "Cosmos" */;
-			productName = Cosmos;
-		};
 		18777EE1248C0F4D00A4CA60 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 18777EE0248C0F4D00A4CA60 /* XCRemoteSwiftPackageReference "Moya" */;

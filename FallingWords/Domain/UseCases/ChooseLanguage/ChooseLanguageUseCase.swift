@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ChooseLanguageUseCase {
-    func execute( completion: @escaping (Result<[LanguageWord], Error>) -> Void)
+    func execute( completion: @escaping (Result<[LanguageChoose], Error>) -> Void)
 }
 
 final class DefaultChooseLanguageUseCase: ChooseLanguageUseCase {
@@ -21,12 +21,9 @@ final class DefaultChooseLanguageUseCase: ChooseLanguageUseCase {
         self.repository = repository
     }
 
-    func execute( completion: @escaping (Result<[LanguageWord], Error>) -> Void) {
+    func execute( completion: @escaping (Result<[LanguageChoose], Error>) -> Void) {
 
         return repository.fetchChooseLanguageList { (result) in
-            if case .success = result {
-
-            }
             completion(result)
         }
     }

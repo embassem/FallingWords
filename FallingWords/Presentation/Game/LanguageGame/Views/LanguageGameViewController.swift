@@ -14,7 +14,7 @@ class LanguageGameViewController: NiblessViewController {
 
     lazy var backButton: UIButton = {
         let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        btn.setImage(UIImage(named: "ic_back"), for: [])
+        btn.setImage(#imageLiteral(resourceName: "ic_back"), for: [])
         btn.addTarget(self, action: #selector(backButtonWasTapped), for: .touchUpInside)
         view.addSubview(btn)
         btn.translatesAutoresizingMaskIntoConstraints = false

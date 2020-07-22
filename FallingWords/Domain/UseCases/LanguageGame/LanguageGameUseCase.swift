@@ -9,7 +9,7 @@
 import Foundation
 
 protocol LanguageGameUseCase {
-    func execute(completion: @escaping (Result<[Photo], Error>) -> Void)
+    func execute(completion: @escaping (Result<[LanguageChoose], Error>) -> Void)
 }
 
 final class DefaultLanguageGameUseCase: LanguageGameUseCase {
@@ -21,6 +21,6 @@ final class DefaultLanguageGameUseCase: LanguageGameUseCase {
         self.repository = repository
     }
 
-    func execute(completion: @escaping (Result<[Photo], Error>) -> Void) {
+    func execute(completion: @escaping (Result<[LanguageChoose], Error>) -> Void) {
     }
 }

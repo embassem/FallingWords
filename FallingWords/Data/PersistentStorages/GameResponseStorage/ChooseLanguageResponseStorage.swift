@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ChooseLanguageResponseStorage {
-    func getResponse(completion: @escaping (Result<[WordJSON], Error>) -> Void)
+    func getResponse(completion: @escaping (Result<[LanguageChooseJSON], Error>) -> Void)
 }

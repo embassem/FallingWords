@@ -9,16 +9,21 @@
 import Foundation
 
 struct ChooseLanguageViewModelClosures {
-    //let showGameScene: (Language) -> Void
+    let showGameScene: (LanguageChoose) -> Void
 }
 
 protocol ChooseLanguageViewModelInput {
     func viewDidLoad()
     func didSelectItem(at index: Int)
+
+    var numberOfSections: Int { get }
+    func numberOfItems(for section: Int) -> Int
+    func item(for indexPath: IndexPath) -> ChooseLanguageItemViewModel
 }
 
 protocol ChooseLanguageViewModelOutput {
     var items: Observable<[ChooseLanguageItemViewModel]> { get }
+    var selectedItem: Observable<ChooseLanguageItemViewModel?> { get }
     var error: Observable<String> { get }
     var isEmpty: Bool { get }
     var screenTitle: String { get }
@@ -32,15 +37,16 @@ final class DefaultChooseLanguageViewModel: ChooseLanguageViewModel {
     private let closures: ChooseLanguageViewModelClosures?
     private let chooseLanguageUseCase: ChooseLanguageUseCase
 
-    private var languages: [LanguageWord] = [] {
+    private var languages: [LanguageChoose] = [] {
         didSet {
-            //items.value = languages.map(ItemViewModel.init)
+            items.value = languages.map(ChooseLanguageItemViewModel.init)
         }
     }
 
     // MARK: - OUTPUT
 
     let items: Observable<[ChooseLanguageItemViewModel]> = Observable([])
+    var selectedItem: Observable<ChooseLanguageItemViewModel?> = Observable(nil)
     let error: Observable<String> = Observable("")
     var isEmpty: Bool { return items.value.isEmpty }
     let screenTitle = NSLocalizedString("Choose The Language", comment: "")
@@ -60,6 +66,18 @@ final class DefaultChooseLanguageViewModel: ChooseLanguageViewModel {
         self.error.value = error.localizedDescription
     }
 
+    func numberOfItems(for section: Int) -> Int {
+        return languages.count
+    }
+
+    func item(for indexPath: IndexPath) -> ChooseLanguageItemViewModel {
+        return items.value[indexPath.item]
+    }
+
+    var numberOfSections: Int {
+        return 1
+    }
+
 }
 
 // MARK: - INPUT. View event methods
@@ -67,10 +85,22 @@ final class DefaultChooseLanguageViewModel: ChooseLanguageViewModel {
 extension DefaultChooseLanguageViewModel {
 
     func viewDidLoad() {
-        //load()
+        load()
     }
 
     func didSelectItem(at index: Int) {
+        let selectedLanguage = languages[index]
+        closures?.showGameScene(selectedLanguage)
+    }
 
+    private func load () {
+        chooseLanguageUseCase.execute { (result) in
+            switch result {
+            case .success(let chooses):
+                self.languages = chooses
+            case .failure( let error):
+                self.error.value = error.localizedDescription
+            }
+        }
     }
 }

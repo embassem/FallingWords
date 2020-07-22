@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ChooseLanguageRepository {
-    func fetchChooseLanguageList( completion: @escaping (Result<[LanguageWord], Error>) -> Void)
+    func fetchChooseLanguageList( completion: @escaping (Result<[LanguageChoose], Error>) -> Void)
 }
