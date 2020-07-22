@@ -9,7 +9,7 @@
 import Foundation
 
 protocol LanguageGameUseCase {
-    func execute(completion: @escaping (Result<[LanguageChoose], Error>) -> Void)
+    func execute(completion: @escaping (Result<[LanguageWord], Error>) -> Void)
 }
 
 final class DefaultLanguageGameUseCase: LanguageGameUseCase {
@@ -21,6 +21,17 @@ final class DefaultLanguageGameUseCase: LanguageGameUseCase {
         self.repository = repository
     }
 
-    func execute(completion: @escaping (Result<[LanguageChoose], Error>) -> Void) {
+    func execute(completion: @escaping (Result<[LanguageWord], Error>) -> Void) {
+        
+        repository.fetchWordListList { (result) in
+            let words = result.value ?? []
+            var translations = words.map({$0.translation}).shuffled()
+            
+            func randomWord() -> String {
+                return translations.removeFirst()
+            }
+            let shufledTranslation = words.map({ LanguageWord(word: $0.word, translation: randomWord()) })
+            completion(.success(shufledTranslation))
+        }
     }
 }

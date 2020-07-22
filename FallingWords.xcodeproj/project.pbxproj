@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1814D40B248C5058004420DE /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814D40A248C5058004420DE /* Fonts.swift */; };
+		184CF67B24C864F9003DC685 /* LanguageGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184CF67A24C864EE003DC685 /* LanguageGameViewController.xib */; };
 		184FE15024BB00230094F2A0 /* ChooseLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FE14E24BB00230094F2A0 /* ChooseLanguageViewController.swift */; };
 		184FE15124BB00230094F2A0 /* ChooseLanguageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184FE14F24BB00230094F2A0 /* ChooseLanguageViewController.xib */; };
 		184FE15424BB0A460094F2A0 /* SimpleObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184FE15324BB0A450094F2A0 /* SimpleObservable.swift */; };
@@ -69,6 +70,7 @@
 		18B0B2D92489D94400DF800B /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0B2D82489D94400DF800B /* Assets.swift */; };
 		18B0B2DB2489DCB000DF800B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0B2DA2489DCB000DF800B /* UIViewController.swift */; };
 		18B0B2DD2489E03300DF800B /* NavigationBar+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0B2DC2489E03300DF800B /* NavigationBar+Appearance.swift */; };
+		18B6876C24C87BB7003882C8 /* PlayWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B6876B24C87BB7003882C8 /* PlayWord.swift */; };
 		18CC087124BB0D5000A13324 /* Bundle+Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC087024BB0D5000A13324 /* Bundle+Decodable.swift */; };
 		18CC087724BB0F7900A13324 /* LanguageGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC087524BB0F7900A13324 /* LanguageGame.swift */; };
 		18CC087924BB12F800A13324 /* UITableViewExtensions+SwifterSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC087824BB12F800A13324 /* UITableViewExtensions+SwifterSwift.swift */; };
@@ -120,6 +122,7 @@
 
 /* Begin PBXFileReference section */
 		1814D40A248C5058004420DE /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		184CF67A24C864EE003DC685 /* LanguageGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LanguageGameViewController.xib; sourceTree = "<group>"; };
 		184FE14E24BB00230094F2A0 /* ChooseLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageViewController.swift; sourceTree = "<group>"; };
 		184FE14F24BB00230094F2A0 /* ChooseLanguageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseLanguageViewController.xib; sourceTree = "<group>"; };
 		184FE15324BB0A450094F2A0 /* SimpleObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleObservable.swift; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 		18B0B2D82489D94400DF800B /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		18B0B2DA2489DCB000DF800B /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		18B0B2DC2489E03300DF800B /* NavigationBar+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NavigationBar+Appearance.swift"; sourceTree = "<group>"; };
+		18B6876B24C87BB7003882C8 /* PlayWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWord.swift; sourceTree = "<group>"; };
 		18CC087024BB0D5000A13324 /* Bundle+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decodable.swift"; sourceTree = "<group>"; };
 		18CC087524BB0F7900A13324 /* LanguageGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageGame.swift; sourceTree = "<group>"; };
 		18CC087824BB12F800A13324 /* UITableViewExtensions+SwifterSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewExtensions+SwifterSwift.swift"; sourceTree = "<group>"; };
@@ -778,6 +782,7 @@
 			children = (
 				18F255AA24C1D7F80020A9BD /* LanguageGameViewModel.swift */,
 				18E1515A24C2338B005312DC /* LanguageGameItemViewModel.swift */,
+				18B6876B24C87BB7003882C8 /* PlayWord.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 		18F255AC24C1D97E0020A9BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				184CF67A24C864EE003DC685 /* LanguageGameViewController.xib */,
 				18F255A024C1D6680020A9BD /* LanguageGameViewController.swift */,
 			);
 			path = Views;
@@ -898,6 +904,7 @@
 				18B0B276248984C300DF800B /* LaunchScreen.storyboard in Resources */,
 				18B0B2B42489D2DB00DF800B /* Apercu Bold.otf in Resources */,
 				18B0B22624897CF900DF800B /* Colors.xcassets in Resources */,
+				184CF67B24C864F9003DC685 /* LanguageGameViewController.xib in Resources */,
 				18B0B22724897CF900DF800B /* Images.xcassets in Resources */,
 				1886083524C7B0AE00C69BAF /* words.json in Resources */,
 				18777F4E248C32D800A4CA60 /* NoInternetView.xib in Resources */,
@@ -986,6 +993,7 @@
 				184FE15024BB00230094F2A0 /* ChooseLanguageViewController.swift in Sources */,
 				18CC089C24BB6DDB00A13324 /* WordJSON.swift in Sources */,
 				18E1516324C24919005312DC /* LanguageGameRepository.swift in Sources */,
+				18B6876C24C87BB7003882C8 /* PlayWord.swift in Sources */,
 				184FE15424BB0A460094F2A0 /* SimpleObservable.swift in Sources */,
 				18CC087724BB0F7900A13324 /* LanguageGame.swift in Sources */,
 				18B0B2D92489D94400DF800B /* Assets.swift in Sources */,
